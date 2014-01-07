@@ -10,7 +10,7 @@ def show
   @book = Book.find(params[:id])
  end
 
-# GET /books
+# GET /books/new
 def new
   @book = Book.new
 end
