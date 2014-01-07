@@ -1,4 +1,4 @@
-class Books < ActiveRecord::Base
+class Book < ActiveRecord::Base
 
 	validates :title, :author, presence: true
 
