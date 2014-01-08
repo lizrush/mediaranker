@@ -12,6 +12,7 @@ Mediatracker::Application.routes.draw do
   post '/books' => 'books#create', as: :create_book
   patch '/books/:id' => 'books#update', as: :update_book
   delete 'books/:id' => 'books#destroy', as: :destroy_book
+  post '/books/:id/upvote' => 'books#upvote', as: :upvote_book
 
   get '/albums' => 'albums#index', as: :albums
   get '/albums/new' => 'albums#new', as: :new_album
@@ -20,6 +21,7 @@ Mediatracker::Application.routes.draw do
   post '/albums' => 'albums#create', as: :create_album
   patch '/albums' => 'albums#update', as: :update_album
   delete '/albums/:id' => 'albums#destroy', as: :destroy_album
+  post '/albums/:id/upvote' => 'albums#upvote', as: :upvote_album
 
   get '/movies' => 'movies#index', as: :movies
   get '/movies/new' => 'movies#new', as: :new_movie
@@ -28,5 +30,6 @@ Mediatracker::Application.routes.draw do
   post '/movies' => 'movies#create', as: :create_movie
   patch '/movies/:id' => 'movies#update', as: :update_movie
   delete '/movies/:id' => 'movies#destroy', as: :destroy_movie
+  post '/movies/:id/upvote' => 'movies#upvote', as: :upvote_movie
 
 end

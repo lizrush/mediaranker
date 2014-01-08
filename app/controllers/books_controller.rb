@@ -39,6 +39,19 @@ def update
   end
 end
 
+# POST books/:id/upvote
+  def upvote
+    @book = Book.find(params[:id])
+
+    if @book.upvotes.nil?
+      @book.upvotes = 1
+    else
+      @book.upvotes += 1
+    end
+    @book.save
+    redirect_to :back
+  end
+
 # DELETE /books/:id
 def destroy
   @book.destroy
@@ -48,7 +61,7 @@ end
 
 private
   def book_params
-    params.require(:book).permit(:name, :author, :description)
+    params.require(:book).permit(:title, :author, :description, :id)
   end
 
 end

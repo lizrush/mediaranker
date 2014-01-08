@@ -38,6 +38,21 @@ class MoviesController < ApplicationController
       render 'edit'
     end
   end
+
+# POST movies/:id/upvote
+
+  def upvote
+    @movie = Movie.find(params[:id])
+
+    if @movie.upvotes.nil?
+      @movie.upvotes = 1
+    else
+      @movie.upvotes += 1
+    end
+    @movie.save
+    redirect_to :back
+  end
+
   
  # DELETE /movies/:id 
   def destroy
@@ -47,7 +62,7 @@ class MoviesController < ApplicationController
 private
 
   def movie_params
-    params.require(:movie).permit(:name, :director, :description)
+    params.require(:movie).permit(:title, :director, :description, :id)
   end
 
 end

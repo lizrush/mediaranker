@@ -38,6 +38,20 @@ class AlbumsController < ApplicationController
 			render 'edit'
 		end
 	end
+
+	# POST albums/:id/upvote
+
+  def upvote
+    @albums = Album.find(params[:id])
+
+    if @album.upvotes.nil?
+      @album.upvotes = 1
+    else
+      @album.upvotes += 1
+    end
+    @album.save
+    redirect_to :back
+  end
 	
 # DELETE /albums/:id	
 	def destroy
@@ -48,7 +62,7 @@ class AlbumsController < ApplicationController
 private
 
 	def album_params
-		params.require(:album).permit(:name, :artist, :description) 
+		params.require(:album).permit(:title, :artist, :description) 
 	end
 
 end
