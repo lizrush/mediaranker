@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   
 # GET /movies/:id  
   def show
-    @movie = Movie.find(params[:id])
+    set_movie
   end
  
  # GET /movies/new 
@@ -42,7 +42,7 @@ class MoviesController < ApplicationController
 # POST movies/:id/upvote
 
   def upvote
-    @movie = Movie.find(params[:id])
+    set_movie
 
     if @movie.upvotes.nil?
       @movie.upvotes = 1
@@ -63,6 +63,10 @@ private
 
   def movie_params
     params.require(:movie).permit(:title, :director, :description, :id)
+  end
+
+   def set_movie
+    @movie = Movie.find(params[:id])
   end
 
 end

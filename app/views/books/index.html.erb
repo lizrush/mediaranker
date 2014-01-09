@@ -14,12 +14,13 @@
   </tr>  
     <tr>
     	<% @books.each do |book| %>
-      <td> <%= book.upvotes %> </td>
-      <td> <%= link_to book.title, book_path(book) %>  </td>
-      <td> <%= button_to "Upvote", upvote_book_path(book) %></td>
-    </tr> <% end %>
-  
-    
+      <td><%= book.upvotes %> </td>
+      <td><%= link_to book.title, book_path(book) %>  </td>
+      <td><%= form_for book do |f| %>
+            <%= f.hidden_field :vote %>
+            <%= f.submit "Upvote", class: "btn btn-default" %>
+          <% end %></td>
+    </tr><% end %>
 </table>
 
 <a class="btn btn-default" href="/">View All Media</a>

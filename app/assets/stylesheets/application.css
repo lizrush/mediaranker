@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+.page-header {
+    background: url(/assets/owl.jpeg);
+    background-repeat: no-repeat;
+    display block;
+}
+
+.page-header h1 {
+	margin-left:150px;
+}

@@ -1,1 +1,13 @@
-show
+<h1><%= @album.title %><small> by: <%= @album.artist %> </h1><br>
+
+<h4> Number of upvotes: <%= @album.upvotes %></h4><br>
+
+<p><%= @album.description %></p><br>
+
+<%= button_to "Upvote", upvote_album_path(@album) %><br>
+
+
+<a class="btn btn-default" href="/albums/:id/edit">Edit Album</a>
+<a class="btn btn-danger" href="/albums/:id/destroy">Delete Album</a>
+<a class="btn btn-default" href="/albums">View All Albums</a>
+<a class="btn btn-default" href="/">View All Media</a>

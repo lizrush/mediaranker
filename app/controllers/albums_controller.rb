@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
 	
 # GET /albums/:id	
 	def show
-		@album = Album.find(params[:id])
+		set_album
 	end
 	
 # GET /albums/new	
@@ -42,7 +42,7 @@ class AlbumsController < ApplicationController
 	# POST albums/:id/upvote
 
   def upvote
-    @albums = Album.find(params[:id])
+    set_album
 
     if @album.upvotes.nil?
       @album.upvotes = 1
@@ -64,5 +64,9 @@ private
 	def album_params
 		params.require(:album).permit(:title, :artist, :description) 
 	end
+
+	 def set_album
+    @album = Album.find(params[:id])
+  end
 
 end

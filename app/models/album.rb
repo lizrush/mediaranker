@@ -1,5 +1,6 @@
 class Album < ActiveRecord::Base
 
-	validates :title, :artist, presence: true
-
+  validates :artist,    presence: true
+  validates :title,     presence: true,
+                        uniqueness: true
 end
